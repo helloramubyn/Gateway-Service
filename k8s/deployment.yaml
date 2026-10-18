@@ -16,13 +16,13 @@ spec:
     spec:
       containers:
         - name: i27-gateway
-          image: bynramu/i27helpdesk-gateway:v1
+          image: ${IMAGE}
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
           envFrom:
             - secretRef:
-                name: i27-gateway-dev
+                name: ${SECRET_NAME}
           readinessProbe:
             httpGet:
               path: /readyz
